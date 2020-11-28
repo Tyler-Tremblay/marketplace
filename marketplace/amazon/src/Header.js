@@ -1,14 +1,42 @@
 import React from "react";
 import "./Header.css";
+import SearchIcon from '@material-ui/icons/Search';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingCart';
 
 function Header() {
   return (
     <div className="header">
       <img
         className="header__logo"
-        src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.template.net%2Ffree-designs%2Flogo-design%2F&psig=AOvVaw1bw-QAB-cJUYoXrPbPAnvO&ust=1600209951034000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOip1OPc6esCFQAAAAAdAAAAABAD"
+        src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
       />
-      <div className="header_search"></div>
+
+      <div className="header__search">
+        <input className="header__searchInput" type="text" />
+        <SearchIcon className="header__searchIcon" />
+      </div>
+
+      <div className="header__nav">
+        <div className="header__option">
+          <span className="header__optionLineOne"> Hello Guest</span>
+          <span className="header__optionLineTwo"> Sign in</span>
+        </div>
+
+        <div className="header__option">
+          <span className="header__optionLineOne"> Returns</span>
+          <span className="header__optionLineTwo"> & Orders</span>
+        </div>
+
+        <div className="header__option">
+          <span className="header__optionLineOne"> Your</span>
+          <span className="header__optionLineTwo"> Prime</span>
+        </div>
+
+        <div className="header__optionBasket">
+          <ShoppingBasketIcon />
+          <span className="header__optionLineTwo header__basketCount">0</span>
+        </div>
+      </div>
     </div>
   );
 }
