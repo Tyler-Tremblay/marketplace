@@ -54,13 +54,14 @@
 
 .header__basketCount {
     margin-left: 10px;
+    margin-right: 10px;
+}
 
-
-    
 .header__nav {
     display: flex;
-    
-
+    justify-content: 10px;
+    margin-right: 10px;
+}
 
 .header__option {
     display: flex;
