@@ -1,25 +1,46 @@
-import React from 'react'
+import React from "react";
 import "./Product.css";
+import { useStateValue } from "./StateProvider";
 
-function Product() {
+function Product({ id, title, image, price, rating }) {
+    const [{ basket }, dispatch] = useStateValue();
+
+    const addToBasket = () => {
+        // dispatch the item into the data layer
+        dispatch({
+            type: "ADD_TO_BASKET",
+            item: {
+                id: id,
+                title: title,
+                image: image,
+                price: price,
+                rating: rating,
+            },
+        });
+    };
+
     return (
         <div className="product">
-            <div className="product__info">         {/*Product info is the info in the container- title, price, rating */}
-               <p>The lean startup</p>
-            <p className="product__price">         {/*product price listed in product info container */}
-            <small>$</small>
-            <small>19.99</small>
-            </p>
-            <div className="product__rating">
-                <p>*</p>
+            <div className="product__info">
+                <p>{title}</p>
+                <p className="product__price">
+                    <small>$</small>
+                    <strong>{price}</strong>
+                </p>
+                <div className="product__rating">
+                    {Array(rating)
+                        .fill()
+                        .map((_, i) => (
+                            <p>🌟</p>
+                        ))}
+                </div>
             </div>
-        </div>
 
-        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8dmVnZXRhYmxlfGVufDB8fDB8&auto=format&fit=crop&w=600&q=60" alt=""/>
-     
-        <button>Add to Basket</button>
-     </div>
+            <img src={image} alt="" />
+
+            <button onClick={addToBasket}>Add to Basket</button>
+        </div>
     );
 }
 
-export default Product
+export default Product;

@@ -6,6 +6,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
+    
 }
 
 
@@ -13,7 +14,7 @@
     width: 100px;
     object-fit: contain;
     margin: 0 20px;
-    margin-top: 18px;
+    margin-top: 0px;
 }
 
 
